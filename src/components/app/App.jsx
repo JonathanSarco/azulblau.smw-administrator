@@ -8,9 +8,6 @@ function App() {
   return (
     <IssueStoreContent>
     <div className="App">
-      <header className="App-header">
-        <h1>Testing the app</h1>
-      </header>
       {/* <div>
         <IssueList />
         <IssueForm />
