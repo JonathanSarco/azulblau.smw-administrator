@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import Logo from '../layout/logo/Logo';
 import './LoginForm.scss';
 
 const LoginForm = () => {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -13,23 +13,22 @@ const LoginForm = () => {
     }
     return (
         <div className='container'>
-            <div className="form-container">
+            <div className='overlay-container'>
+                <div className='overlay'>
+                    <div className='overlay-panel overlay-left'>
+                        <Logo />
+                    </div>
+                </div>
+            </div>
+
+            <div className="form-container">            
                 <form action="#" onSubmit={onSubmitHandler}>
-                    <h1>Sign In</h1>
-                    <input type="email" placeholder="email" onChange={e => setEmail(e.target.value)}/>
-                    <input type="password" placeholder="placeholder" onChange={e => setPassword(e.target.value)}/>
+                    <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
+                    <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     <button type='submit'>Sign In</button>
                 </form>
             </div>
-            <div className='overlay-container'>
-                <div className='overlay'>
-                    <div className='overlay-panel overlay-right'>
-                        <h1>Welcome to: </h1>
-                        <h2>AzulBlau</h2>
-                    </div>
-                </div>
-                
-            </div>
+  
         </div>
     );
 }
