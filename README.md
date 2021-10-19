@@ -1,7 +1,24 @@
-# AzulBlau (Administrator)
+# azulblau-administrator
 
-React application where the content of the `AzulBlau` web page will be handled.
+## Project setup
+```
+npm install
+```
 
-Working On:
-- Create React App
-- Login Page (using MobX for state management)
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
