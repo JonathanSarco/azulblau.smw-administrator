@@ -1,13 +1,13 @@
 import firebase from "firebase/compat/app";
 
+const envVars = process.env;
+
 var firebaseConfig = {
-  apiKey: "AIzaSyDSJwT7flBGyZpIE7Fnx5PqyFEVU0cBp7Q",
-  authDomain: "azulblau-admin.firebaseapp.com",
-  projectId: "azulblau-admin",
-  storageBucket: "azulblau-admin.appspot.com",
-  messagingSenderId: "228464048625",
-  appId: "1:228464048625:web:504397225bcf8e050b2c50",
-  measurementId: "G-YPB7B74YYP"
+  apiKey: envVars.VUE_APP_FIREBASE_API_KEY,
+  authDomain: envVars.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: envVars.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: envVars.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  appId: envVars.VUE_APP_FIREBASE_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
