@@ -4,8 +4,8 @@ on:
     branches:
       - main
 jobs:
-  build:
-    name: Build
+  build-admin:
+    name: Build administrator
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -25,7 +25,7 @@ jobs:
           path: build
   deploy:
     name: Deploy
-    needs: build
+    needs: build-admin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
