@@ -1,11 +1,13 @@
 import firebase from "firebase/compat/app";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBjaC91evo46oQ4k7_gTltsqOh-sbMql3A",
-  authDomain: "azulblau-swm.firebaseapp.com",
-  databaseURL: "https://azulblau-swm-default-rtdb.firebaseio.com",
-  projectId: "azulblau-swm",
-  storageBucket: "azulblau-swm.appspot.com",
+  apiKey: "AIzaSyDSJwT7flBGyZpIE7Fnx5PqyFEVU0cBp7Q",
+  authDomain: "azulblau-admin.firebaseapp.com",
+  projectId: "azulblau-admin",
+  storageBucket: "azulblau-admin.appspot.com",
+  messagingSenderId: "228464048625",
+  appId: "1:228464048625:web:504397225bcf8e050b2c50",
+  measurementId: "G-YPB7B74YYP"
 };
 
 firebase.initializeApp(firebaseConfig);

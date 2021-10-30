@@ -14,7 +14,6 @@ const state = reactive({
 
 async function handleRedirectCallback() {
   state.loading = true;
-  console.log("in the callback");
   try {
     await client.handleRedirectCallback();
     state.user = await client.getUser();
@@ -38,10 +37,6 @@ function getTokenSilently(o) {
   return client.getTokenSilently(o);
 }
 
-function getTokenWithPopup(o) {
-  return client.getTokenWithPopup(o);
-}
-
 function logout(o) {
   return client.logout(o);
 }
@@ -51,7 +46,6 @@ export const authPlugin = {
   loading: computed(() => state.loading),
   getIdTokenClaims,
   getTokenSilently,
-  getTokenWithPopup,
   loginWithRedirect,
   handleRedirectCallback,
   logout,
@@ -61,7 +55,6 @@ export const routeGuard = (to, from, next) => {
   const { isAuthenticated, loading } = authPlugin;
 
   const verify = () => {
-    console.log("aca en verify ", isAuthenticated.value);
     // If the user is authenticated, continue with the route
     if (isAuthenticated.value) {
       next();
@@ -102,9 +95,6 @@ export const setupAuth = async (options, callbackRedirect) => {
     // Initialize our internal authentication state
     state.isAuthenticated = await client.isAuthenticated();
     state.user = await client.getUser();
-    // if (state.user) {
-    //   state.permissions = await getTokenPermissions();
-    // }
     state.loading = false;
   }
 
