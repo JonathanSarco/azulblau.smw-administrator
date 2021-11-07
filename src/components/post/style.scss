@@ -1,0 +1,32 @@
+
+.post-title {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.login-form {
+  padding: 2em;
+  border: 1px solid #b4b4b4;
+  border-radius: .5em;
+  display: flex;
+  column-gap: 1rem;
+  min-height: 250px;
+  margin-bottom: 1rem;
+
+  .login-first {
+    flex: 50%;
+  }
+
+  .login-second {
+
+    .date-picker-container {
+      position: absolute;
+    }
+  }
+}
+
+.button-container {
+  text-align: end;
+}
+
+

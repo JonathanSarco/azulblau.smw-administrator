@@ -1,5 +1,7 @@
 <template>
-    <va-data-table :items="murals" />
+  <va-data-table :items="murals" >
+    <template #cell(id)="{ source: id }"><va-chip>{{ id }}</va-chip></template>
+  </va-data-table>
 </template>
 
 <script>
@@ -14,7 +16,9 @@ export default {
   setup() {
     const { state, dispatch } = useStore();
 
-    const murals = computed(() => state.fetchMurals.murals);
+    const murals = computed(() => {
+        return state.fetchMurals.murals;
+    });
 
     onMounted(async () => {
       dispatch("fetchMurals");

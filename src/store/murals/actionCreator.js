@@ -12,7 +12,8 @@ const actions = {
     commit("GetMuralsBegin");
     try {
       const response = await DatabaseService.getMurals();
-      console.log("response ", response);
+
+
       commit("GetMuralsFinished", response);
     } catch (error) {
       console.log("Error: ", error);

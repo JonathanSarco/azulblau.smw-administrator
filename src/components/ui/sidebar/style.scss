@@ -3,6 +3,12 @@
   position: relative;
   display: flex;
   margin-bottom: 0;
+
+  .va-sidebar-item {
+    a {
+      color: white;
+    }
+  }
 }
 
 .content-container {
