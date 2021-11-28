@@ -7,6 +7,7 @@ import "vuestic-ui/dist/vuestic-ui.css";
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 import { setupAuth } from "./auth/index";
 import { auth0options } from "./auth/config"
+import VueUploadComponent from 'vue-upload-component'
 
 const app = createApp(App);
 
@@ -20,5 +21,6 @@ setupAuth(auth0options, callbackRedirect).then((auth) => {
     .use(VuesticPlugin)
     .use(store)
     .use(router)
+    .use(VueUploadComponent)
     .mount("#app");
 });

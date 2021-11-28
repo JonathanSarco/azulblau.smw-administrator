@@ -1,4 +1,4 @@
-import { createRouter, createMemoryHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { pages } from "./pages";
 // import { routeGuard } from "../auth/index";
 
@@ -20,7 +20,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createMemoryHistory(""),
+  history: createWebHistory(),
   routes,
 });
 

@@ -2,7 +2,7 @@
   <div class="sidebar-container">
     <va-sidebar color="black" gradient minimizedWidth="64px" width="12rem">
       <va-sidebar-item>
-        <router-link to="/">
+        <router-link to="/dashboard">
           <va-sidebar-item-content active>
             <va-icon name="view_headline" />
             <va-sidebar-item-title>Posts </va-sidebar-item-title>

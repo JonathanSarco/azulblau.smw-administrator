@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
-import fetchMurals from "./murals/actionCreator";
+import murals from "./murals/actionCreator";
 
 export default createStore({
   modules: {
-    fetchMurals,
+    murals,
   },
 });

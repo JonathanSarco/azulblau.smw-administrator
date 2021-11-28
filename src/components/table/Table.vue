@@ -1,6 +1,8 @@
 <template>
-  <va-data-table :items="murals" >
-    <template #cell(id)="{ source: id }"><va-chip>{{ id }}</va-chip></template>
+  <va-data-table :items="murals">
+    <template #cell(id)="{ source: id }"
+      ><va-chip>{{ id }}</va-chip></template
+    >
   </va-data-table>
 </template>
 
@@ -11,21 +13,20 @@ import { onMounted } from "@vue/runtime-core";
 
 export default {
   name: "Table",
-  components: {
-  },
+  components: {},
   setup() {
-    const { state, dispatch } = useStore();
+    const { state } = useStore();
 
     const murals = computed(() => {
-        return state.fetchMurals.murals;
+      return state.murals.murals;
     });
 
     onMounted(async () => {
-      dispatch("fetchMurals");
+      // dispatch("fetchMurals");
     });
 
     return {
-      murals
+      murals,
     };
   },
 };

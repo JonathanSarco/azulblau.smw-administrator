@@ -14,4 +14,21 @@ export default {
     state.loading = false;
     state.error = error;
   },
+
+  SaveNewMuralBegin(state) {
+    state.loading = true;
+    state.error = null;
+    state.newMural = null;
+  },
+
+  SaveNewMuralFinished(state, data) {
+    state.newMural = data;
+    state.loading = false;
+  },
+
+  SaveNewMuralError(state, error) {
+    state.loading = false;
+    state.error = error;
+  }
+
 };

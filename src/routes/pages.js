@@ -1,7 +1,7 @@
 export const pages = [
   {
     name: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     component: () =>
       import(
         /* webpackChunkName: "Dashboard" */ "@/views/dashboard/Dashboard.vue"
