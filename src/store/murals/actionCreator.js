@@ -13,6 +13,7 @@ const actions = {
     commit("GetMuralsBegin");
     try {
       const response = await getMurals();
+      console.log("response", response);
       commit("GetMuralsFinished", response.data);
     } catch (error) {
       console.log("Error: ", error);

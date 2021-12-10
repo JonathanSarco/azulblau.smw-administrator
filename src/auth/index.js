@@ -44,6 +44,7 @@ function logout(o) {
 export const authPlugin = {
   isAuthenticated: computed(() => state.isAuthenticated),
   loading: computed(() => state.loading),
+  user: computed(() => state.user),
   getIdTokenClaims,
   getTokenSilently,
   loginWithRedirect,

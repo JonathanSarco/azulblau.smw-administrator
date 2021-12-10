@@ -56,11 +56,8 @@ const storeArtist = async (payload) => {
 };
 
 const getMurals = async () => {
-  axios.get("/").then((res) => {
-    if (res.status === 201) {
-      console.log("went to ", res);
-    }
-  });
+  const response = await axios.get("/artist");
+  return response;
 };
 
 export { storeArtist, getMurals };
