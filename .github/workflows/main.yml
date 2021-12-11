@@ -18,7 +18,7 @@ jobs:
           echo VUE_APP_AUTH0_DOMAIN=${{ secrets.AUTH0_DOMAIN }} >> .env
           echo VUE_APP_AUTH0_CLIENT_ID=${{ secrets.AUTH0_CLIENT_ID }} >> .env
           echo VUE_APP_AUTH_REDIRECT_URI=${{ secrets.AUTH_REDIRECT_URI }} >> .env
-          echo VUE_APP_BACKEND_URL=https://sheltered-cliffs-49107.herokuapp.com/ >> .env
+          echo VUE_APP_BACKEND_URL=${{ secrets.VUE_APP_BACKEND_URL }} >> .env
           cat .env
       # - name: Run Tests
       #   env:
