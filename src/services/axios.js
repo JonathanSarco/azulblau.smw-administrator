@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const URL = process.env.VUE_APP_BACKEND_URL;
-console.log("HOLA ", URL);
 
 const instance = axios.create({
-  baseURL: URL,
+  baseURL: "https://sheltered-cliffs-49107.herokuapp.com/",
 });
 
 export default instance;
