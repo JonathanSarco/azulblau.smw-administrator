@@ -20,10 +20,10 @@ jobs:
           echo VUE_APP_AUTH_REDIRECT_URI=${{ secrets.AUTH_REDIRECT_URI }} >> .env
           echo VUE_APP_BACKEND_URL=https://sheltered-cliffs-49107.herokuapp.com/ >> .env
           cat .env
-      - name: Run Tests
-        env:
-          CI: true
-        run: npm run test:unit
+      # - name: Run Tests
+      #   env:
+      #     CI: true
+      #   run: npm run test:unit
       - name: Build
         run: npm run build
       - name: Archive Production Artifact
