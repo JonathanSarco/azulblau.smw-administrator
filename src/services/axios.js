@@ -1,8 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
+
+const URL = process.env.VUE_APP_BACKEND_URL;
 
 const instance = axios.create({
-    //baseURL: 'https://azulblau-swm-default-rtdb.firebaseio.com'
-    baseURL: 'http://localhost:5005/v1'
+  baseURL: URL,
 });
 
 export default instance;
