@@ -17,7 +17,7 @@ const storeSecondayPictures = async (payload) => {
   }
 
   const responseSecondaryMurals = await axios.post(
-    "/artist/innerPictures",
+    "/v1/artist/innerPictures",
     secondaryFormData
   );
 
@@ -45,7 +45,7 @@ const storeArtist = async (payload) => {
   console.log("Secondary Murals ", secondaryPictures);
   const formData = getDataFromPayloadToFormData(payload);
 
-  const responseMainMural = await axios.post("/artist", formData);
+  const responseMainMural = await axios.post("/v1/artist", formData);
   console.log("Main Murals ->", responseMainMural);
 
   if (responseMainMural.status == 201) {
@@ -56,7 +56,7 @@ const storeArtist = async (payload) => {
 };
 
 const getMurals = async () => {
-  const response = await axios.get("/artist");
+  const response = await axios.get("/v1/artist");
   return response;
 };
 
