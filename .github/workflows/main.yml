@@ -17,12 +17,39 @@ jobs:
           touch .env
           echo VUE_APP_AUTH0_DOMAIN=${{ secrets.AUTH0_DOMAIN }} >> .env
           echo VUE_APP_AUTH0_CLIENT_ID=${{ secrets.AUTH0_CLIENT_ID }} >> .env
-          echo VUE_APP_AUTH_REDIRECT_URI=https://main.dmrf4lv6h2cuu.amplifyapp.com >> .env
-          echo VUE_APP_BACKEND_URL=${{ secrets.VUE_APP_BACKEND_URL }} >> .env
+          echo VUE_APP_AUTH_REDIRECT_URI=${{ secrets.AUTH_REDIRECT_URI }} >> .env
+          echo VUE_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }} >> .env
+          echo VUE_APP_FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }} >> .env
+          echo VUE_APP_FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }} >> .env
+          echo VUE_APP_FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }} >> .env
           cat .env
-      # - name: Run Tests
-      #   env:
-      #     CI: true
-      #   run: npm run test:unit
+      - name: Run Tests
+        env:
+          CI: true
+        run: npm test
       - name: Build
         run: npm run build
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build-admin
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2.3.2
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
