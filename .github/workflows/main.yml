@@ -10,6 +10,15 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2.3.2
+      - name: configure amplify
+        uses: ambientlight/amplify-cli-action@0.3.0
+        with:
+          amplify_command: configure
+          amplify_env: prod
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
       - name: Install Dependencies
         run: npm install
       - name: Create .env file
@@ -44,9 +53,12 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
+      - name: Deploy to AWS Amplify
+        uses: ambientlight/amplify-cli-action@0.3.0
         with:
-          args: deploy --only hosting
+          amplify_command: publish
+          amplify_env: prod
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
