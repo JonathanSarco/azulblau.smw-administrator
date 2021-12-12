@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { pages } from "./pages";
-import { routeGuard } from "../auth/index";
+// import { routeGuard } from "../auth/index";
 
 const routes = [
   {
@@ -9,7 +9,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Layout" */ "../layouts/Layout.vue"),
     children: [...pages],
-    beforeEnter: routeGuard,
+    // beforeEnter: routeGuard,
   },
   {
     name: "Login",

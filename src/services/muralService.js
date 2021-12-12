@@ -55,8 +55,10 @@ const storeArtist = async (payload) => {
   return responseMainMural;
 };
 
-const getMurals = async () => {
-  const response = await axios.get("/v1/artist");
+const getMurals = async (payload) => {
+  const response = await axios.get(
+    `/v1/artist?limit=${payload.limit}&offset=${payload.offset}`
+  );
   return response;
 };
 

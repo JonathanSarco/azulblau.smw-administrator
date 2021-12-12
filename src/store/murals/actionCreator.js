@@ -3,16 +3,16 @@ import mutations from "./mutations";
 
 const state = () => ({
   loading: false,
-  murals: [],
+  murals: { total: 0, data: [] },
   newMural: null,
   error: null,
 });
 
 const actions = {
-  async fetchMurals({ commit }) {
+  async fetchMurals({ commit }, payload) {
     commit("GetMuralsBegin");
     try {
-      const response = await getMurals();
+      const response = await getMurals(payload);
       console.log("response", response);
       commit("GetMuralsFinished", response.data);
     } catch (error) {

@@ -22,7 +22,7 @@ export default {
 
     onMounted(() => {
       let user = authPlugin.user.value;
-      icon.value = user.nickname === "jfe.sarco" ? IconJS : IconNF;
+      icon.value = user && user.nickname === "jfe.sarco" ? IconJS : IconNF;
     });
 
     return {

@@ -7,6 +7,10 @@
   .va-sidebar-item {
     a {
       color: white;
+
+      &:active {
+        color: blue;
+      }
     }
   }
 }
