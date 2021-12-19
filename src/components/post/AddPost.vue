@@ -11,7 +11,11 @@
       />
 
       <div class="mb-4 mr-4">
-        <va-date-input placeholder="Date" v-model="formValues.date" />
+        <va-date-input
+          placeholder="Date"
+          mode="single"
+          v-model="formValues.date"
+        />
       </div>
 
       <va-input
@@ -108,7 +112,7 @@ import { useStore } from "vuex";
 const defaultState = {
   title: "",
   description: "",
-  date: "",
+  date: new Date(),
   tags: "",
   discussion: "",
   mainMural: null,
@@ -120,8 +124,8 @@ export default {
   components: {},
   setup() {
     const showPicker = ref(false);
-    let mainMural = ref(null);
-    let secondaryMurals = ref([]);
+    const mainMural = ref(null);
+    const secondaryMurals = ref([]);
 
     const { state, dispatch } = useStore();
 
@@ -164,14 +168,21 @@ export default {
       return true;
     };
 
+    const emptyForm = () => {
+      formValues.value.title = "";
+      formValues.value.description = "";
+      formValues.value.date = new Date();
+      formValues.value.tags = "";
+      formValues.value.discussion = "";
+      mainMural.value = null;
+      secondaryMurals.value = [];
+    };
+
     const onSubmitForm = () => {
       if (checkImagesLoading()) {
         dispatch("saveNewMural", formValues.value);
-
         isLoading.value = false;
-        formValues.value = defaultState;
-        mainMural.value = null;
-        secondaryMurals.value = [];
+        emptyForm();
       }
     };
 

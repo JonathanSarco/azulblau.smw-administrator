@@ -41,15 +41,15 @@ const getDataFromPayloadToFormData = (payload) => {
 };
 
 const storeArtist = async (payload) => {
-  const secondaryPictures = storeSecondayPictures(payload);
-  console.log("Secondary Murals ", secondaryPictures);
+  storeSecondayPictures(payload);
+  //console.log("Secondary Murals ", secondaryPictures);
   const formData = getDataFromPayloadToFormData(payload);
 
   const responseMainMural = await axios.post("/v1/artist", formData);
-  console.log("Main Murals ->", responseMainMural);
+  // console.log("Main Murals ->", responseMainMural);
 
   if (responseMainMural.status == 201) {
-    console.log("Coming back from store image", responseMainMural);
+    // console.log("Coming back from store image", responseMainMural);
   }
 
   return responseMainMural;

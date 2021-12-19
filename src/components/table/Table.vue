@@ -81,8 +81,8 @@ export default {
       dispatch("fetchMurals", newQuery);
     });
 
-    const onChange = (event) => {
-      console.log("onChange", event);
+    const onChange = () => {
+      // console.log("onChange", event);
     };
 
     return {
