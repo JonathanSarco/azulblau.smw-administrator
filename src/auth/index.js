@@ -1,4 +1,5 @@
 import createAuth0Client from "@auth0/auth0-spa-js";
+import { auth0options } from "./config";
 import { reactive, computed, watchEffect } from "vue";
 
 let client;
@@ -38,7 +39,7 @@ function getTokenSilently(o) {
 }
 
 function logout(o) {
-  return client.logout(o);
+  return client.logout(o, { returnTo: auth0options.redirect_uri });
 }
 
 export const authPlugin = {
