@@ -8,9 +8,6 @@
 
     <template #right>
       <va-navbar-item>
-        <va-icon name="power_settings_new" class="ml-4" />
-      </va-navbar-item>
-      <va-navbar-item>
         <IconProfile />
       </va-navbar-item>
     </template>

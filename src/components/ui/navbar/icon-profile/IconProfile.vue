@@ -1,8 +1,12 @@
 <template>
   <div class="icon-container">
     <div class="icon-container__image">
-      <!-- <img v-if="token && token === 'jfe.sarco@gmail.com'" alt="azul-blau" :src="IconJS" /> -->
-      <img v-if="icon" alt="azul-blau" :src="icon" />
+      <img v-if="icon" alt="azul-blau" :src="icon" @click="openDropDown" />
+    </div>
+    <div class="icon-container__logout" v-if="isDropdownOpen">
+      <ul class="dropdown-content">
+        <li @click="onLogout">Logout</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,14 +23,27 @@ export default {
   components: {},
   setup() {
     let icon = ref(null);
+    const isDropdownOpen = ref(false);
 
     onMounted(() => {
       let user = authPlugin.user.value;
       icon.value = user && user.nickname === "jfe.sarco" ? IconJS : IconNF;
     });
 
+    const openDropDown = () => {
+      isDropdownOpen.value = !isDropdownOpen.value;
+    };
+
+    const onLogout = () => {
+      openDropDown();
+      authPlugin.logout();
+    };
+
     return {
       icon,
+      isDropdownOpen,
+      openDropDown,
+      onLogout,
     };
   },
 };
